@@ -8,8 +8,14 @@ export const routes = {
 	},
 	private: {
 		dashboard: {
-			root: "/dashboard",
-			home: "/dashboard/inicio",
+			root: {
+				path: "/dashboard",
+				title: "Dashboard",
+			},
+			home: {
+				path: "/dashboard/inicio",
+				title: "Inicio",
+			},
 		},
 	},
 } as const;

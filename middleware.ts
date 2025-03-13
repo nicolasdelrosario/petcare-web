@@ -8,7 +8,7 @@ export function middleware(request: NextRequest) {
 
 	if (
 		!isAuthenticated &&
-		request.nextUrl.pathname.startsWith(routes.private.dashboard.root)
+		request.nextUrl.pathname.startsWith(routes.private.dashboard.root.path)
 	) {
 		return NextResponse.redirect(
 			new URL(routes.public.auth.signIn, request.url),
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
 
 	if (isAuthenticated && isAuthPage) {
 		return NextResponse.redirect(
-			new URL(routes.private.dashboard.home, request.url),
+			new URL(routes.private.dashboard.home.path, request.url),
 		);
 	}
 

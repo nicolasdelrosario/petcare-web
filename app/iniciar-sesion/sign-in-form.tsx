@@ -37,7 +37,7 @@ function SignInForm() {
 		signIn.mutate(credentials, {
 			onSuccess: () => {
 				toast.success("Bienvenido!");
-				router.push(routes.private.dashboard.home);
+				router.push(routes.private.dashboard.home.path);
 			},
 
 			onError: () => {
