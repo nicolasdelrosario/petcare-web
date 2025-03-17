@@ -1,5 +1,6 @@
+import type { CreateUserSchema, PatchUserSchema } from "@/schemas/user";
 import { userService } from "@/services/users";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export function useUsers(id?: string) {
 	const list = useQuery({
@@ -14,5 +15,13 @@ export function useUsers(id?: string) {
 		retry: false,
 	});
 
-	return { list, getOne };
+	const create = useMutation({
+		mutationFn: (user: CreateUserSchema) => userService.create(user),
+	});
+
+	const patch = useMutation({
+		mutationFn: (user: PatchUserSchema) => userService.patch(Number(id), user),
+	});
+
+	return { list, getOne, create, patch };
 }
