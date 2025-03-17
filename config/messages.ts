@@ -1,19 +1,28 @@
 export const messages = {
 	form: {
 		labels: {
-			email: "Correo electrónico",
-			password: "Contraseña",
-			name: "Nombre",
-			phone: "Teléfono",
+			user: {
+				name: "Nombre",
+				email: "Correo electrónica",
+				password: "Contraseña",
+				phone: "Teléfono",
+				role: "Rol",
+			},
 		},
 		placeholders: {
-			email: "email@petcare.com",
-			password: "********",
+			user: {
+				name: "Your Name",
+				email: "email@petcare.com",
+				password: "********",
+				phone: "51123456789",
+				role: "receptionist",
+			},
 		},
 		buttons: {
+			create: "Nuevo",
+			loading: "Cargando...",
 			signIn: "Iniciar sesión",
 			submit: "Enviar",
-			loading: "Cargando...",
 		},
 	},
 	errors: {
@@ -25,6 +34,7 @@ export const messages = {
 		users: {
 			invalidName: "El nombre debe tener al menos 3 caracteres",
 			invalidEmail: "Correo electrónico no válido",
+			invalidPassword: "La contraseña debe tener al menos 6 caracteres",
 			invalidWorkspace: "El espacio de trabajo es requerido",
 			invalidWorkspaceId: "El ID del espacio de trabajo no es válido",
 			invalidPhone: "El número de teléfono no es válido",
