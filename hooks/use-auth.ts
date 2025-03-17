@@ -1,6 +1,6 @@
 import type { SignInSchema } from "@/schemas/auth";
 import { authService } from "@/services/auth";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation, useQuery } from "@tanstack/react-query";
 
 export function useAuth() {
 	const signIn = useMutation({
@@ -11,5 +11,11 @@ export function useAuth() {
 		mutationFn: () => authService.signOut(),
 	});
 
-	return { signIn, signOut };
+	const getMe = useQuery({
+		queryKey: ["me"],
+		queryFn: () => authService.getMe(),
+		retry: false,
+	});
+
+	return { signIn, signOut, getMe };
 }
